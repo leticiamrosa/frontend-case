@@ -1,6 +1,6 @@
-import { TransactionsDay } from '@domain/models/transactions/'
+import { ITransactionsDay } from '@domain/models/transactions/'
 
-export interface Transactions {
+export interface ITransactions {
   itemsTotal: number
-  results: TransactionsDay[]
+  results: ITransactionsDay[]
 }

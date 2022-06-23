@@ -1,12 +1,12 @@
-import { TransactionStatus, TransactionSource, TransactionType, TransactionEntry } from '@domain/models/transactions/'
+import { ITransactionStatus, ITransactionSource, ITransactionType, ITransactionEntry } from '@domain/models/transactions/'
 
-export interface Transaction {
-  status: TransactionStatus
+export interface ITransaction {
+  status: ITransactionStatus
   actor: string
   amount: string
-  source: TransactionSource
-  type: TransactionType
-  entry: TransactionEntry
+  source: ITransactionSource
+  type: ITransactionType
+  entry: ITransactionEntry
   scheduled: boolean
   dateEvent: Date
 }

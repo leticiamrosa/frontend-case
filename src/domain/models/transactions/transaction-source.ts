@@ -1,4 +1,4 @@
-export enum TransactionSource {
+export enum ITransactionSource {
   PAYMENT = 'PAYMENT',
   TRANSFER = 'TRANSFER',
 }
