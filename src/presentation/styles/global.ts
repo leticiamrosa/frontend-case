@@ -3,12 +3,12 @@ import { createGlobalStyle } from 'styled-components'
 export default createGlobalStyle`
 
  @font-face {
-  font-family: 'Source Sans Pro', sans-serif;
-  src: url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,700;1,400&display=swap');
+  font-family: 'Avenir';
+  src: url('src/presentation/assets/fonts/AvenirLTStd-Roman.otf');
  }
 
   body, input, button {
-    font-family: 'Source Sans Pro', sans-serif;
+    font-family: 'Avenir';
     font-size: 14px;
   }
 
@@ -29,10 +29,6 @@ export default createGlobalStyle`
 
   body {
     -webkit-font-smoothing: antialiased;
-  }
-
-  body, input, button {
-    font: 14px 'Lato', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   }
 
   a {
