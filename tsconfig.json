@@ -24,6 +24,11 @@
       "allowJs": true,
       "resolveJsonModule": true
     },
+    "plugins": [
+      {
+        "name": "typescript-styled-plugin"
+      }
+    ],
     "include": [
       "src"
     ],

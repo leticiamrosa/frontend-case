@@ -3,3 +3,4 @@ coverage
 public
 dist
 *.scss
+src/presentation/assets/fonts

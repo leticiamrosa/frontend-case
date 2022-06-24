@@ -5,20 +5,14 @@ import {
   Route
 } from 'react-router-dom'
 
-const Initial: React.FC = () => {
-  return (
-        <div>
-            <h1>Initialddd Project</h1>
-        </div>
-  )
-}
+import { makeStatementPage } from '../factories/pages/'
 
 export const Router: React.FC = () => {
   return (
-      <BrowserRouter>
-        <Switch>
-          <Route exact path="/" component={Initial}/>
-        </Switch>
-      </BrowserRouter>
+    <BrowserRouter>
+      <Switch>
+        <Route exact path="/" component={makeStatementPage} />
+      </Switch>
+    </BrowserRouter>
   )
 }
