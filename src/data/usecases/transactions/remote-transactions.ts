@@ -1,4 +1,5 @@
-import { HttpGetClient, HttpResponseType } from '@data/protocols/http'
+import { HttpGetClient, HttpStatusCode } from '@data/protocols/http'
+import { GenericError } from '@domain/errors/generic-error'
 import { ITransactions } from '@domain/models/transactions'
 import { Transaction } from '@domain/usecases/transactions'
 
@@ -13,8 +14,10 @@ export class RemoteTransactions implements Transaction {
       url: this.url
     })
 
-    const transactions = HttpResponseType[httpResponse.statusCode](httpResponse.data)
+    if (!httpResponse || httpResponse.statusCode !== HttpStatusCode.OK) {
+      throw new GenericError()
+    }
 
-    return transactions
+    return httpResponse.data
   }
 }

@@ -5,5 +5,5 @@ export enum HttpStatusCode {
   NOT_FOUND = 404,
   NO_CONTENT = 204,
   SERVER_ERROR = 500,
-  DEFAULT = 404,
+  DEFAULT = 500,
 };
