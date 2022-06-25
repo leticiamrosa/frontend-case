@@ -1,9 +1,11 @@
 import React from 'react'
+import { SearchBar } from '@presentation/components/common'
+import Styled from './statement.style'
 
 export const Statement: React.FC = () => {
   return (
-    <div>
-      <h1>initial project</h1>
-    </div>
+    <Styled.Wrapper>
+      <SearchBar />
+    </Styled.Wrapper>
   )
 }
