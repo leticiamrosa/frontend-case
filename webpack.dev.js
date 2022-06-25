@@ -1,8 +1,11 @@
+
+const common = require('./webpack.common')
+
+const { merge } = require('webpack-merge')
+const { DefinePlugin } = require('webpack')
+
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
-const { merge } = require('webpack-merge')
-const common = require('./webpack.common')
-const { DefinePlugin } = require('webpack')
 
 module.exports = merge(common, {
   mode: 'development',
@@ -23,6 +26,16 @@ module.exports = merge(common, {
       }, {
         loader: 'sass-loader'
       }]
+    },
+    {
+      test: /\.svg/,
+      use: {
+        loader: 'svg-url-loader',
+        options: {
+          iesafe: true,
+          encoding: 'base64'
+        }
+      }
     }]
   },
   devtool: 'inline-source-map',
