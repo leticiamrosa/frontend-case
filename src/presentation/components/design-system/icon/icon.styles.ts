@@ -1,4 +1,4 @@
-import { colors } from '@presentation/styles'
+import { colors } from '@presentation/styles/theme'
 import styled from 'styled-components'
 
 interface WrapperIconProps {

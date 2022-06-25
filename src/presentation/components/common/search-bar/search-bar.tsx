@@ -2,7 +2,7 @@ import React, { ReactNode } from 'react'
 import { Chips, Icon } from '@presentation/components/design-system'
 import searchIcon from '@presentation//assets/images/icons/ico-search.svg'
 import Styled from './search-bar.styles'
-import { colors } from '@presentation/styles'
+import { colors } from '@presentation/styles/theme'
 
 const ICON_HEIGHT = 16
 const ICON_WIDTH = 16

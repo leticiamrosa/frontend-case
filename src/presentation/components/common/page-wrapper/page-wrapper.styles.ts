@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { colors } from '@presentation/styles'
+import { colors } from '@presentation/styles/theme'
 
 const Wrapper = styled.div<{ isMobile: boolean }>`
   display: flex;

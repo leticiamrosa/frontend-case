@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { colors, fonts } from '@presentation/styles'
+import { colors, fonts } from '@presentation/styles/theme'
 
 interface ChipsContentProps {
   isSelected?: boolean

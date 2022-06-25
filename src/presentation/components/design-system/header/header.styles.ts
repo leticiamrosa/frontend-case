@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { colors, fonts } from '@presentation/styles'
+import { colors, fonts } from '@presentation/styles/theme'
 
 const HeaderWrapper = styled.div<{ isMobile: boolean }>`
   display: flex;
