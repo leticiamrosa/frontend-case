@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { colors, fonts } from '@presentation/styles/theme'
+import { colors, fontWeight, fontSizes } from '@presentation/styles/theme'
 
 interface ChipsContentProps {
   isSelected?: boolean
@@ -29,10 +29,10 @@ const ChipContent = styled.div<ChipsContentProps>`
 `
 
 const ChipLabel = styled.span<{ isSelected?: boolean }>`
-  font-size: 16px;
-  font-weight: ${fonts.REGULAR};
-  line-height: 24px;
-  padding: 0px 16px 0px 16px;
+  font-size: ${fontSizes._16};
+  font-weight: ${fontWeight.REGULAR};
+  line-height: ${fontSizes._24};
+  padding: 0px 16px;
   color: ${({ isSelected }) =>
     isSelected ? colors.WHITE : colors.PRIMARY_HIGHLIGHT};
 `

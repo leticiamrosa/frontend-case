@@ -1,4 +1,4 @@
-const colors = {
+export const colors = {
   WHITE: '#FFF',
 
   PRIMARY_HIGHLIGHT: '#FE3E6D',
@@ -11,5 +11,3 @@ const colors = {
   SECONDARY_BLUE: '#1A93DA',
   SECONDARY_BLUE_LIGHTEN: '#EAF7FF'
 }
-
-export default colors

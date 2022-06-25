@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { colors, fonts } from '@presentation/styles/theme'
+import { colors, fontWeight, fontSizes } from '@presentation/styles/theme'
 
 const HeaderWrapper = styled.div<{ isMobile: boolean }>`
   display: flex;
@@ -13,9 +13,9 @@ const HeaderWrapper = styled.div<{ isMobile: boolean }>`
 
 const Title = styled.h3`
   color: ${colors.PRIMARY_GRAY};
-  font-size: 22px;
-  line-height: 32px;
-  font-weight: ${fonts.BOLD};
+  font-size: ${fontSizes._22};
+  line-height: ${fontSizes._32};
+  font-weight: ${fontWeight.BOLD};
 `
 
 export default {

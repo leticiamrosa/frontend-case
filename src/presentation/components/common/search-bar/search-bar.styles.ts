@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { colors, fonts } from '@presentation/styles/theme'
+import { colors, fontWeight } from '@presentation/styles/theme'
 
 const SearchWrapper = styled.section`
   display: flex;
@@ -29,7 +29,7 @@ const InputWrapper = styled.div`
 
 const InputSearch = styled.input`
   font-size: 16px;
-  font-weight: ${fonts.REGULAR};
+  font-weight: ${fontWeight.REGULAR};
   line-height: 24px;
   width: 100%;
   background-color: ${colors.PRIMARY_GRAY_LIGHTEN};

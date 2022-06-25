@@ -1,45 +1,59 @@
-export const fontSizes = {
-  /** 10px */
-  x0: '0.625rem',
-  /** 12px */
-  x1: '0.750rem',
-  /** 16px */
-  x2: '1.000rem',
-  /** 24px */
-  x3: '1.500rem',
-  /** 32px */
-  x4: '2.000rem',
-  /** 40px */
-  x5: '2.500rem',
-  /** 48px */
-  x6: '3.000rem',
-  /** 12px */
-  x12: '0.75rem',
-  /** 14px */
-  x14: '0.875rem',
-  /** 20px */
-  x20: '1.250rem'
+export enum FontSizeType {
+  EXTRA_SMALL = 'extra-small',
+  SMALL = 'small',
+  REGULAR = 'regular',
+  MEDIUM = 'medium',
 }
 
-export const lineHeights = {
+export enum FontWeightType {
+  REGULAR = 'regular',
+  MEDIUM = 'medium',
+  BOLD = 'bold',
+}
+
+export const fontSizes = {
   /** 10px */
-  x0: '0.625rem',
+  _10: '0.625rem',
+  /** 12px */
+  _12: '0.75rem',
+  /** 14px */
+  _14: '0.875rem',
   /** 16px */
-  x1: '1.000rem',
+  _16: '1.000rem',
+  /** 20px */
+  _20: '1.25',
+  /** 22px */
+  _22: '1.375rem',
   /** 24px */
-  x2: '1.500rem',
+  _24: '1.500rem',
   /** 32px */
-  x3: '2.000rem',
+  _32: '2.000rem',
   /** 40px */
-  x4: '2.500rem',
-  /** 48px */
-  x5: '3.000rem',
-  /** 56px */
-  x6: '3.500rem',
-  /** 16px */
-  x16: '1rem',
-  /** 18px */
-  x18: '1.125rem',
-  /** 24px */
-  x24: '1.500rem'
+  _40: '2.500rem'
+}
+
+export const fontWeight = {
+  REGULAR: 400,
+  MEDIUM: 600,
+  BOLD: 900
+}
+
+export const fontSizeVariant = {
+  [FontSizeType.EXTRA_SMALL]: fontSizes._12,
+  [FontSizeType.SMALL]: fontSizes._14,
+  [FontSizeType.REGULAR]: fontSizes._16,
+  [FontSizeType.MEDIUM]: fontSizes._22
+}
+
+export const fontLineHeightVariant = {
+  [FontSizeType.EXTRA_SMALL]: fontSizes._20,
+  [FontSizeType.SMALL]: fontSizes._20,
+  [FontSizeType.REGULAR]: fontSizes._24,
+  [FontSizeType.MEDIUM]: fontSizes._32
+}
+
+export const fontWeightVariant = {
+  [FontWeightType.REGULAR]: fontWeight.REGULAR,
+  [FontWeightType.MEDIUM]: fontWeight.MEDIUM,
+  [FontWeightType.BOLD]: fontWeight.BOLD
 }
