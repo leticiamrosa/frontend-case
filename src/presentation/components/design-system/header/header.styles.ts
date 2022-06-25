@@ -7,7 +7,7 @@ const HeaderWrapper = styled.div<{ isMobile: boolean }>`
   background-color: ${colors.WHITE};
   height: 90px;
   align-items: center;
-  padding-left: ${({ isMobile }) => isMobile ? 20 : 200}px;
+  padding-left: ${({ isMobile }) => isMobile ? 4 : 20}%;
   border-bottom: 1px ${colors.SECONDARY_GRAY_LIGHTEN} solid;
 `
 
