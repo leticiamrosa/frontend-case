@@ -1,24 +1,24 @@
 import faker from 'faker'
-import { RemoteTransactions } from './remote-transactions'
-import { HttpGetClientSpy } from '@data/test'
-import { ITransactions } from '@domain/models/transactions'
-import { mockTransactionsModel } from '@domain/test/transactions/mock-transactions'
+import { RemoteTransactions } from '../../../data/usecases/transactions/remote-transactions'
+import { HttpClientSpy } from '@tests/data/mocks/'
+import { mockTransactionsModel } from '@tests/domain/mocks'
 import { HttpStatusCode } from '@data/protocols/http'
 import { GenericError } from '@domain/errors/generic-error'
+import { Transaction } from '@domain/usecases/transactions'
 
 type SystemUnderTestTypes = {
   systemUnderTest: RemoteTransactions
-  httpGetClientSpy: HttpGetClientSpy<ITransactions>
+  httpClientSpy: HttpClientSpy<Transaction.Model>
 }
 
 const fakeUrl = faker.internet.url()
 
 const makeSystemUnderTest = (url: string = fakeUrl): SystemUnderTestTypes => {
-  const httpGetClientSpy = new HttpGetClientSpy<ITransactions>()
-  const systemUnderTest = new RemoteTransactions(url, httpGetClientSpy)
+  const httpClientSpy = new HttpClientSpy<Transaction.Model>()
+  const systemUnderTest = new RemoteTransactions(url, httpClientSpy)
 
   return {
-    httpGetClientSpy,
+    httpClientSpy,
     systemUnderTest
   }
 }
@@ -28,22 +28,22 @@ describe('RemoteTransactions', () => {
     test('should call HttpGetClient with correct URL', async () => {
       // given
       const url = faker.internet.url()
-      const { systemUnderTest, httpGetClientSpy } = makeSystemUnderTest(url)
+      const { systemUnderTest, httpClientSpy } = makeSystemUnderTest(url)
 
       // when
       await systemUnderTest.getTransactions()
 
       // then
-      expect(httpGetClientSpy.url).toBe(url)
+      expect(httpClientSpy.url).toBe(url)
     })
   })
 
   describe('HttpPostClient return success', () => {
     test('should return an Transaction when HttpGetClient returns 200', async () => {
       // given
-      const { systemUnderTest, httpGetClientSpy } = makeSystemUnderTest()
+      const { systemUnderTest, httpClientSpy } = makeSystemUnderTest()
       const httpResult = mockTransactionsModel()
-      httpGetClientSpy.response = {
+      httpClientSpy.response = {
         statusCode: HttpStatusCode.OK,
         data: httpResult
       }
@@ -59,8 +59,8 @@ describe('RemoteTransactions', () => {
   describe('HttpGetClient returns error', () => {
     test('should throw a GenericError when HttpGetClient not return 200', async () => {
       // given
-      const { systemUnderTest, httpGetClientSpy } = makeSystemUnderTest()
-      httpGetClientSpy.response = {
+      const { systemUnderTest, httpClientSpy } = makeSystemUnderTest()
+      httpClientSpy.response = {
         statusCode: HttpStatusCode.SERVER_ERROR
       }
 
@@ -75,8 +75,8 @@ describe('RemoteTransactions', () => {
 
     test('should throw a GenericError when HttpGetClient not return a data', async () => {
       // given
-      const { systemUnderTest, httpGetClientSpy } = makeSystemUnderTest()
-      httpGetClientSpy.response = {
+      const { systemUnderTest, httpClientSpy } = makeSystemUnderTest()
+      httpClientSpy.response = {
         statusCode: HttpStatusCode.SERVER_ERROR,
         data: null
       }

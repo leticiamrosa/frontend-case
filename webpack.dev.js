@@ -2,7 +2,6 @@
 const common = require('./webpack.common')
 
 const { merge } = require('webpack-merge')
-const { DefinePlugin } = require('webpack')
 
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
@@ -51,9 +50,6 @@ module.exports = merge(common, {
     }),
     new FaviconsWebpackPlugin({
       logo: './public/favicon/favicon-16x16.png'
-    }),
-    new DefinePlugin({
-      'process.env.API_URL': 'https://api-bank-nodejs.herokuapp.com/api/v1'
     })
   ]
 })

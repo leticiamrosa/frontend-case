@@ -19,7 +19,8 @@
         "@presentation/*": ["./src/presentation/*"],
         "@components/*": ["./src/presentation/components/*"],
         "@styles/*": ["./src/presentation/styles/*"],
-        "@main/*": ["./src/main/*"]
+        "@main/*": ["./src/main/*"],
+        "@tests/*": ["./src/_tests/*"]
       },
       "allowJs": true,
       "resolveJsonModule": true
