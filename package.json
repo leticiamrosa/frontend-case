@@ -6,7 +6,7 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "start": "node index",
+    "start": "node index.js",
     "build": "webpack --config webpack.prod.js",
     "dev:base": "webpack serve --config webpack.dev.js",
     "dev": "yarn dev:base",
@@ -21,6 +21,7 @@
   "keywords": [],
   "dependencies": {
     "axios": "0.21.1",
+    "cors": "^2.8.5",
     "date-fns": "^2.28.0",
     "dotenv-webpack": "^7.1.0",
     "express": "^4.18.1",
@@ -60,6 +61,7 @@
     "eslint-plugin-react": "7.22.0",
     "eslint-plugin-standard": "5.0.0",
     "faker": "5.1.0",
+    "favicons": "^6.2.2",
     "favicons-webpack-plugin": "5.0.2",
     "git-commit-msg-linter": "3.0.2",
     "html-webpack-plugin": "^5.5.0",

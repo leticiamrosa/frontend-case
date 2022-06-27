@@ -1,10 +1,18 @@
-const fallback = require('express-history-api-fallback')
 const express = require('express')
-const { join } = require('path')
-
+const path = require('path')
+const cors = require('cors')
 const app = express()
-const root = join(__dirname, 'dist')
 
+const port = process.env.REACT_APP_PORT || 3000
+const root = path.join(__dirname, 'dist')
+
+app.use(cors())
 app.use(express.static(root))
-app.use(fallback('index.html', { root }))
-app.listen(process.env.PORT || 3000)
+
+app.get('/', (_req, res) => {
+  res.sendFile(root)
+})
+
+app.listen(port, () => {
+  console.log(`⚡️ Server listening on http://localhost:${port}`)
+})
