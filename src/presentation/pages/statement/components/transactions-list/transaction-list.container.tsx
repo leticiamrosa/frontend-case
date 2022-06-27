@@ -14,9 +14,10 @@ export const TransactionListContainer: React.FC<ITransactionList> = ({
   const renderTransactionsList = (): ReactNode[] => {
     const element = transactionsDay.map((item, index) => {
       const transactionDateDay = formattedDayDate(item?.date)
+      const hasHeader = index === 0
 
       return (
-        <TransactionList key={index} transactionDateDay={transactionDateDay}>
+        <TransactionList key={index} transactionDateDay={transactionDateDay} hasHeader={hasHeader}>
           <TransactionContainer transactionsItem={item.items} />
         </TransactionList>
       )
