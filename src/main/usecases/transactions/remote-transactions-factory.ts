@@ -5,7 +5,6 @@ import { Transaction } from '@domain/usecases/transactions'
 export const makeRemoteTransactions = (): Transaction => {
   const url = makeApiUrl('/transactions')
   const axiosClient = makeAxiosHttpClient()
-  const service = new RemoteTransactions(url, axiosClient)
 
-  return service
+  return new RemoteTransactions(url, axiosClient)
 }

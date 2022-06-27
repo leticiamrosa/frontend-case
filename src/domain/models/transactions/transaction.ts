@@ -3,7 +3,7 @@ import { ITransactionStatus, ITransactionSource, ITransactionType, ITransactionE
 export interface ITransaction {
   status: ITransactionStatus
   actor: string
-  amount: string
+  amount: number
   source: ITransactionSource
   type: ITransactionType
   entry: ITransactionEntry

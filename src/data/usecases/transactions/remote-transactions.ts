@@ -8,7 +8,7 @@ export class RemoteTransactions implements Transaction {
     private readonly httpClient: HttpClient<Transaction.Model>
   ) {}
 
-  async getTransactions (): Promise<Transaction.Model> {
+  public async getTransactions (): Promise<Transaction.Model> {
     const httpResponse = await this.httpClient.request({
       url: this.url,
       method: 'get'
