@@ -1,5 +1,5 @@
 import { colors } from '@presentation/styles/theme'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 interface WrapperIconProps {
   width?: number
@@ -25,10 +25,18 @@ const WrapperIcon = styled.div<WrapperIconProps>`
 `
 
 const Icon = styled.img<IconProps>`
-  width: ${({ width }) => width || 24}px;
+  width: auto;
   height: ${({ height }) => height || 32}px;
   fill: ${({ iconColorFill }) => iconColorFill || colors.PRIMARY_GRAY};
   stroke: ${({ iconColorStroke }) => iconColorStroke || colors.PRIMARY_GRAY};
+  padding: 4px;
+
+  ${({ width }) =>
+    width &&
+    css`
+      width: ${width}px;
+      padding: 0px;
+    `}
 `
 
 export default {
