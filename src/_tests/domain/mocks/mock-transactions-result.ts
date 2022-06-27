@@ -4,7 +4,7 @@ import { ITransactions, ITransactionsDay } from '@domain/models/transactions'
 
 const mockTransactionDay: ITransactionsDay[] = [
   {
-    date: '2021-01-06',
+    date: '2021-01-06' as unknown as Date,
     amountTotal: 128000,
     items: {
       status: 'COMPLETED',
@@ -18,7 +18,7 @@ const mockTransactionDay: ITransactionsDay[] = [
     } as any
   },
   {
-    date: '2021-01-15',
+    date: '2021-01-15' as unknown as Date,
     amountTotal: 114080,
     items: [
       {
