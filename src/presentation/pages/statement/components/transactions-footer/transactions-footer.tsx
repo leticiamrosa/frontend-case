@@ -4,11 +4,15 @@ import Styled from './transactions-footer.styles'
 
 interface ITransactionFooter {
   transactionDateDay: string
+  amountTotalDay: string
 }
 
 export const TransactionsFooter: React.FC<ITransactionFooter> = ({
-  transactionDateDay
+  transactionDateDay,
+  amountTotalDay
 }: ITransactionFooter) => {
+  const amountTotalDayLabel = `R$ ${amountTotalDay}`
+
   return (
     <Styled.Content>
       <Styled.WrapperDataTransactions>
@@ -25,7 +29,7 @@ export const TransactionsFooter: React.FC<ITransactionFooter> = ({
           fontWeight={fontWeight.BOLD}
           variant={FontSizeType.EXTRA_SMALL}
         >
-          R$ 1231,09
+          {amountTotalDayLabel}
         </Styled.Text>
       </Styled.WrapperTotal>
     </Styled.Content>

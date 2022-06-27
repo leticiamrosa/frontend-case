@@ -8,18 +8,20 @@ interface ITransactionList {
   children: ReactNode
   transactionDateDay: string
   hasHeader: boolean
+  amountTotalDay: string
 }
 
 export const TransactionList: React.FC<ITransactionList> = ({
   children,
   transactionDateDay,
-  hasHeader
+  hasHeader,
+  amountTotalDay
 }: ITransactionList) => {
   const renderHeaderOrFooter = hasHeader
     ? (
     <TransactionsHeader transactionDateDay={transactionDateDay} />
       )
-    : <TransactionsFooter transactionDateDay={transactionDateDay}/>
+    : <TransactionsFooter transactionDateDay={transactionDateDay} amountTotalDay={amountTotalDay}/>
 
   return (
     <>
