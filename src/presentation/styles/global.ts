@@ -4,7 +4,7 @@ export default createGlobalStyle`
 
  @font-face {
   font-family: 'Avenir';
-  src: url('src/presentation/assets/fonts/AvenirLTStd-Roman.otf');
+  src: url('src/presentation/assets/fonts/AvenirLTStd-Book.otf');
  }
 
   body, input, button {
