@@ -43,7 +43,7 @@ describe('AxiosHttpClient', () => {
 
     expect(httpResponse).toEqual({
       statusCode: axiosResponse.status,
-      data: axiosResponse.data
+      data: axiosResponse.data.data
     })
   })
 
