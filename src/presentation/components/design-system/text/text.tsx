@@ -3,6 +3,8 @@ import Styled, { TextProps } from './text.styles'
 
 interface IText extends TextProps {
   children: string
+  style?: React.CSSProperties
+  fontWeight?: number
 }
 
 export const Text: React.FC<IText> = ({
@@ -11,15 +13,20 @@ export const Text: React.FC<IText> = ({
   fontLineHeight,
   variant,
   color,
-  children
+  children,
+  style,
+  ...props
 }: IText) => {
   return (
     <Styled.Text
-      fontWeight={fontWeight}
+      weight={fontWeight}
       fontColor={fontColor}
       fontLineHeight={fontLineHeight}
       variant={variant}
       color={color}
+      style={style}
+      {...props}
+
     >
       {children}
     </Styled.Text>

@@ -11,6 +11,7 @@ interface IIcon {
   iconColor?: string
   iconColorFill?: string
   iconColorStroke?: string
+  style?: React.CSSProperties
 }
 
 export const Icon: React.FC<IIcon> = ({
@@ -22,13 +23,17 @@ export const Icon: React.FC<IIcon> = ({
   iconHeight,
   iconColor,
   iconColorFill,
-  iconColorStroke
+  iconColorStroke,
+  style,
+  ...props
 }: IIcon) => {
   return (
     <Styled.WrapperIcon
       width={backgroundWidth}
       height={backgroundHeight}
       color={backgroundColor}
+      style={style}
+      {...props}
     >
       <Styled.Icon
         src={icon}

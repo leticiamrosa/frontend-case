@@ -1,4 +1,4 @@
-import { colors } from '@presentation/styles/theme'
+import { colors , fontWeight } from '@presentation/styles/theme'
 import {
   fontLineHeightVariant,
   fontSizeVariant,
@@ -13,7 +13,7 @@ type IFontVariant =
   | FontSizeType.MEDIUM
 
 export interface TextProps {
-  fontWeight?: number
+  weight?: number
   fontColor?: string
   fontLineHeight?: number
   variant?: IFontVariant
@@ -31,7 +31,8 @@ const textVariantConfig = ({ variant }: TextProps): string => {
 }
 
 const Text = styled.p<TextProps>`
-  color: ${({ color }) => color || colors.PRIMARY_GRAY};
+  color: ${({ fontColor }) => fontColor || colors.PRIMARY_GRAY};
+  font-weight: ${({ weight }) => weight || fontWeight.REGULAR};
   ${textVariantConfig};
 `
 
