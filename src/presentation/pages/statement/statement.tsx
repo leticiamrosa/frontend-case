@@ -6,9 +6,10 @@ import { TransactionFilterContainer } from './components/transaction-filter/tran
 import { useTransactionFilters } from '@presentation/hooks/useTransactionFilters/useTransactionFilters'
 import { TransactionFilterTypes } from './components/transaction-filter/transaction-filter-types'
 import Styled from './statement.style'
+import { Loading } from '@presentation/components/design-system/loading/loading'
 
 export const Statement: React.FC = () => {
-  const { transactions, handleGetTransactions } =
+  const { transactions, handleGetTransactions, loading } =
     TransactionsContext.useContainer()
 
   const { getTransactionFilter, selectedFilter, defaultFilters, handleSetTransactionFilter, transactionsFilter } = useTransactionFilters({
@@ -18,10 +19,6 @@ export const Statement: React.FC = () => {
   useEffect(() => {
     handleGetTransactions()
   }, [])
-
-  useEffect(() => {
-
-  }, [transactionsFilter])
 
   useEffect(() => {
     if (!selectedFilter) return
@@ -34,6 +31,10 @@ export const Statement: React.FC = () => {
   const getFilter = (): void => {
     if (!transactions?.results) return
     handleSetTransactionFilter(transactions?.results)
+  }
+
+  if (loading) {
+    return <Loading />
   }
 
   return (
