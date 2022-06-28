@@ -17,8 +17,11 @@ const Content = styled.div<{ isFirstItem: boolean }>`
     flex-wrap: wrap;
 `
 
-const TransactionIcon = styled(Icon)`
+const TransactionIcon = styled(Icon)<{isMobile: boolean}>`
   margin-right: 16px;
+  ${({ isMobile }) => isMobile && css` 
+    display: none
+  `}
 `
 
 const WrapperIconAndUserName = styled.div`

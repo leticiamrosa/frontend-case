@@ -4,6 +4,7 @@ import { colors } from '@presentation/styles/theme'
 import { TransactionFilterTypes, TransactionFilterLabel } from './transaction-filter-types'
 
 import Styled from './transaction-filter.styles'
+import { isMobile } from '@presentation/styles/dimensions'
 
 interface ITransactionFilterList {
   filters?: string[]
@@ -33,7 +34,7 @@ export const TransactionFilterContainer: React.FC<ITransactionFilterList> = ({
       }
 
       return (
-        <Styled.WrapperChip key={chip} onClick={onClick}>
+        <Styled.WrapperChip key={chip} onClick={onClick} isMobile={isMobile()}>
           <Chips label={label} isSelected={isSelected} chipColor={chipColor} />
         </Styled.WrapperChip>
       )

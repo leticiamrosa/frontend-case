@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 const SearchWrapper = styled.section`
   display: flex;
@@ -16,11 +16,16 @@ const FilterWrapper = styled.div`
   flex-direction: row;
 `
 
-const WrapperChip = styled.div`
+const WrapperChip = styled.div<{ isMobile: boolean }>`
   margin-right: 40px;
   :hover {
     cursor: pointer;
   }
+
+  ${({ isMobile }) => isMobile && css`
+      margin-right: 16px;
+      margin-top: 24px;
+  `}
 `
 
 export default {
