@@ -38,15 +38,23 @@ export const Statement: React.FC = () => {
     handleGetTransactions()
   }, [])
 
+  const handleSearch = (event: ChangeEvent<HTMLInputElement>): void => {
+    const { value } = event.target
+    handleSearchTerm(value)
+    handleSearchFilter()
+    getTransactionFilter('')
+  }
+
   const getTransactionsDays = useCallback(() => {
     const isInitialFilter = selectedFilter === TransactionFilterTypes.ALL
-
-    if (searchValues) {
-      return searchValues
-    }
+    const isSearch = searchValues && searchValues.length > 0 && transactionsFilter && transactionsFilter.length === 0
 
     if (isInitialFilter) {
       return transactionsResults
+    }
+
+    if (isSearch) {
+      return searchValues
     }
 
     if (transactionsFilter) {
@@ -54,16 +62,9 @@ export const Statement: React.FC = () => {
     }
 
     return transactionsResults
-  },[transactionsResults, transactionsFilter, searchValues, selectedFilter])
+  },[transactionsResults, transactionsFilter, searchValues, selectedFilter, searchTerm])
 
   const transactionsDay = getTransactionsDays()
-
-  const handleSearch = (event: ChangeEvent<HTMLInputElement>): void => {
-    const { value } = event.target
-    handleSearchTerm(value)
-    handleSearchFilter()
-    getTransactionFilter('')
-  }
 
   if (loading) {
     return <Loading />

@@ -71,7 +71,7 @@ export const useTransactionFilters = ({
 
   const getTransactionFilter = useCallback((filter: string) => {
     setSelectedFilter(filter)
-  }, [])
+  }, [selectedFilter])
 
   return {
     defaultFilters: DEFAULT_FILTERS,

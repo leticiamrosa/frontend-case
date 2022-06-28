@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react'
+import { useState, useCallback, useRef } from 'react'
 import { ITransactionsDay } from '@domain/models/transactions/'
 
 interface ITransactionSearchHooks {
@@ -6,6 +6,7 @@ interface ITransactionSearchHooks {
   handleSearchFilter: () => void
   searchValues: ITransactionsDay[]
   searchTerm: string
+  searchRef: HTMLElement
 }
 
 interface ITransactionSearchHooksProps {
@@ -15,6 +16,7 @@ interface ITransactionSearchHooksProps {
 export const useTransactionSearch = ({
   transactions
 }: ITransactionSearchHooksProps): ITransactionSearchHooks => {
+  const searchRef = useRef<HTMLElement>()
   const [searchTerm, setSearchTerm] = useState<string>()
   const [searchValues, setSearchValues] = useState<ITransactionsDay[]>()
 
@@ -23,7 +25,9 @@ export const useTransactionSearch = ({
   }, [searchValues])
 
   const handleSearchFilter = (): void => {
-    if (!transactions || transactions.length === 0) return
+    const shouldSkipSearchFilter = !transactions || transactions.length === 0 || !searchTerm
+
+    if (shouldSkipSearchFilter) return
 
     const newSearchValues = []
     const regex = new RegExp(searchTerm, 'ig')
@@ -46,6 +50,7 @@ export const useTransactionSearch = ({
     handleSearchTerm,
     handleSearchFilter,
     searchValues,
-    searchTerm
+    searchTerm,
+    searchRef: searchRef.current
   }
 }
