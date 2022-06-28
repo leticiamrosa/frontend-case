@@ -18,7 +18,7 @@ export const TransactionsHeader: React.FC<ITransactionHeader> = ({
       </Styled.WrapperDataTransactions>
 
       <Styled.WrapperTransactionType>
-        <Styled.Text variant={FontSizeType.SMALL}>
+        <Styled.Text variant={FontSizeType.SMALL} fontColor={colors.PRIMARY_GRAY_DARKEN}>
           Tipo de transação
         </Styled.Text>
       </Styled.WrapperTransactionType>
@@ -33,7 +33,7 @@ export const TransactionsHeader: React.FC<ITransactionHeader> = ({
       </Styled.WrapperData>
 
       <Styled.WrapperTotal>
-        <Styled.Text>Valor</Styled.Text>
+        <Styled.Text fontColor={colors.PRIMARY_GRAY_DARKEN}>Valor</Styled.Text>
       </Styled.WrapperTotal>
     </Styled.Content>
   )

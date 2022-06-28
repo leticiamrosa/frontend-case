@@ -1,5 +1,7 @@
 import React from 'react'
 import { IFormattedPrefixAmount } from './transaction-types'
+import { colors } from '@presentation/styles/theme'
+
 import Styled from './transaction-item.style'
 
 interface ITransactionProps {
@@ -25,15 +27,15 @@ export const TransactionItem: React.FC<ITransactionProps> = ({
     <Styled.Content isFirstItem={isFirstItem}>
       <Styled.WrapperIconAndUserName>
         <Styled.TransactionIcon icon={icon} />
-        <Styled.Text>{username}</Styled.Text>
+        <Styled.Text fontColor={colors.PRIMARY_GRAY}>{username}</Styled.Text>
       </Styled.WrapperIconAndUserName>
 
       <Styled.WrappperTransactionLabel>
-        <Styled.TransactionLabel>{label}</Styled.TransactionLabel>
+        <Styled.TransactionLabel fontColor={colors.PRIMARY_GRAY_DARKEN}>{label}</Styled.TransactionLabel>
       </Styled.WrappperTransactionLabel>
 
       <Styled.WrapperDate>
-        <Styled.Text>{date}</Styled.Text>
+        <Styled.Text fontColor={colors.PRIMARY_GRAY_DARKEN}>{date}</Styled.Text>
       </Styled.WrapperDate>
 
       <Styled.WrapperTotal>

@@ -1,5 +1,9 @@
 import React from 'react'
-import { transactionLabel, transactionIconType, formattedPrefixAmount } from './transaction-types'
+import {
+  transactionLabel,
+  transactionIconType,
+  formattedPrefixAmount
+} from './transaction-types'
 import { ITransaction, ITransactionStatus } from '@domain/models/transactions'
 import { formattedDateDisplay } from '@presentation/helpers/date-helper/date-helper'
 import { TransactionItem } from './transaction-item'
@@ -23,14 +27,14 @@ export const TransactionItemContainer: React.FC<ITransactionContainer> = ({
   const total = formattedPrefixAmount(transaction)
 
   return (
-      <TransactionItem
-        username={username}
-        label={label}
-        icon={icon}
-        date={date}
-        total={total}
-        isRefunded={isRefunded}
-        isFirstItem={isFirstItem}
-      />
+    <TransactionItem
+      username={username}
+      label={label}
+      icon={icon}
+      date={date}
+      total={total}
+      isRefunded={isRefunded}
+      isFirstItem={isFirstItem}
+    />
   )
 }

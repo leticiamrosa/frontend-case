@@ -13,6 +13,8 @@ const Content = styled.div<{ isFirstItem: boolean }>`
     css`
       padding-top: 32px;
     `}
+
+    flex-wrap: wrap;
 `
 
 const TransactionIcon = styled(Icon)`
@@ -50,22 +52,27 @@ const Text = styled(CustomText)<{
     `}
 `
 
-const TransactionLabel = styled(Text)``
+const TransactionLabel = styled(Text)`
+  flex-wrap: wrap;
+`
 
 const WrappperTransactionLabel = styled.div`
   flex: 1;
   align-items: center;
+  flex-wrap: wrap;
 `
 
 const WrapperDate = styled.div`
   flex: 1;
   align-items: center;
+  flex-wrap: wrap;
 `
 
 const WrapperTotal = styled.div`
   display: flex;
   flex: 1;
   justify-content: flex-end;
+  flex-wrap: wrap;
 `
 
 export default {

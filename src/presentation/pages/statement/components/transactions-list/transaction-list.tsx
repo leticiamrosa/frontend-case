@@ -1,6 +1,7 @@
 import React, { ReactNode } from 'react'
 import { TransactionsHeader } from '../transactions-header/transactions-header'
 import { TransactionsFooter } from '../transactions-footer/transactions-footer'
+import { isMobile } from '@presentation/styles/dimensions'
 
 import Styled from './transaction-list.styles'
 
@@ -27,7 +28,7 @@ export const TransactionList: React.FC<ITransactionList> = ({
     <>
       {renderHeaderOrFooter}
       <Styled.Line />
-      <Styled.Wrapper>{children}</Styled.Wrapper>
+      <Styled.Wrapper isMobile={isMobile()}>{children}</Styled.Wrapper>
       <Styled.Line />
     </>
   )
