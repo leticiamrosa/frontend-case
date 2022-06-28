@@ -42,7 +42,8 @@ module.exports = merge(common, {
     contentBase: './public',
     writeToDisk: true,
     historyApiFallback: true,
-    port: 8080
+    port: 3000,
+    open: true
   },
   plugins: [
     new HtmlWebpackPlugin({
