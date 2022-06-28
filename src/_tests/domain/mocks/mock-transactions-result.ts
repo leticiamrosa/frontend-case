@@ -392,3 +392,54 @@ export const mockTransactionsOutDay: ITransactions[] = [
     ]
   } as any
 ]
+
+export const mockTransactionsSearchResults: ITransactions[] = [
+  {
+    date: '2020-01-17',
+    amountTotal: 94080,
+    items: [
+      {
+        status: 'COMPLETED',
+        actor: 'Lola Camisaria',
+        amount: 12000,
+        source: 'TRANSFER',
+        type: 'INTERNAL',
+        entry: 'DEBIT',
+        scheduled: false,
+        dateEvent: '2020-01-17T00:00:00Z'
+      }
+    ]
+  },
+  {
+    date: '2020-04-24',
+    amountTotal: 132080,
+    items: [
+      {
+        status: 'COMPLETED',
+        actor: 'Lola Camisaria',
+        amount: 13580,
+        source: 'TRANSFER',
+        type: 'INTERNAL',
+        entry: 'DEBIT',
+        scheduled: false,
+        dateEvent: '2020-04-24T00:00:00Z'
+      }
+    ]
+  },
+  {
+    date: '2020-05-28',
+    amountTotal: 121000,
+    items: [
+      {
+        status: 'PENDING',
+        actor: 'Lola Camisaria',
+        amount: 33850,
+        source: 'TRANSFER',
+        type: 'INTERNAL',
+        entry: 'DEBIT',
+        dateEvent: '2020-01-28T00:00:00Z',
+        scheduled: true
+      }
+    ]
+  } as any
+]
