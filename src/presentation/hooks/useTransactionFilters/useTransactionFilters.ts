@@ -21,7 +21,7 @@ interface ITransactionFilterHooksProps {
 const DEFAULT_FILTERS = [
   TransactionFilterTypes.ALL,
   TransactionFilterTypes.ENTRY,
-  TransactionFilterTypes.WITHDRAW,
+  TransactionFilterTypes.OUT,
   TransactionFilterTypes.SCHEDULED
 ]
 

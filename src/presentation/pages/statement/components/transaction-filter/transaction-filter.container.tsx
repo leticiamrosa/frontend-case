@@ -23,7 +23,7 @@ export const TransactionFilterContainer: React.FC<ITransactionFilterList> = ({
     if (!filters || filters.length === 0) return null
 
     const element = filters.map((chip) => {
-      const isSecondarySelected = chip === TransactionFilterTypes.WITHDRAW
+      const isSecondarySelected = chip === TransactionFilterTypes.OUT
       const chipColor = isSecondarySelected && colors.SECONDARY_BLUE_LIGHTEN
       const label = TransactionFilterLabel[chip]
 
