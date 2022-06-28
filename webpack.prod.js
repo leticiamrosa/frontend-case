@@ -18,7 +18,7 @@ module.exports = merge(common, {
         test: /\.scss$/,
         use: [
           {
-            loader: 'style-loader'
+            loader: MiniCssExtractPlugin.loader
           },
           {
             loader: 'css-loader',
@@ -45,13 +45,14 @@ module.exports = merge(common, {
   },
   externals: {
     react: 'React',
-    'react-dom': 'ReactDOM',
     axios: 'axios',
+    'react-dom': 'ReactDOM',
     'react-router-dom': 'ReactRouterDOM'
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './template.prod.html'
+      template: './template.prod.html',
+      favicon: './public/favicon/favicon.ico'
     }),
     new MiniCssExtractPlugin({
       filename: 'main-bundle-[hash].css'
