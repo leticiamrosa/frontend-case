@@ -16,16 +16,6 @@ export const TransactionFilterLabel = {
 }
 
 export const transactionFilterType = {
-  [ITransactionEntry.CREDIT]: (isSheduled: boolean) => {
-    if (isSheduled) {
-      return TransactionFilterTypes.SCHEDULED
-    }
-    return TransactionFilterTypes.ENTRY
-  },
-  [ITransactionEntry.DEBIT]: (isSheduled: boolean) => {
-    if (isSheduled) {
-      return TransactionFilterTypes.SCHEDULED
-    }
-    return TransactionFilterTypes.WITHDRAW
-  }
+  [ITransactionEntry.CREDIT]: TransactionFilterTypes.ENTRY,
+  [ITransactionEntry.DEBIT]: TransactionFilterTypes.WITHDRAW
 }

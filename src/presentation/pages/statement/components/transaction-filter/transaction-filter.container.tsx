@@ -9,12 +9,14 @@ interface ITransactionFilterList {
   filters?: string[]
   selectedFilter: string
   onClickFilter: (filter: string) => void
+  hasSearch: boolean
 }
 
 export const TransactionFilterContainer: React.FC<ITransactionFilterList> = ({
   filters,
   selectedFilter,
-  onClickFilter
+  onClickFilter,
+  hasSearch
 }: ITransactionFilterList) => {
   const renderFilterChips = (): ReactNode => {
     if (!filters || filters.length === 0) return null
@@ -24,7 +26,7 @@ export const TransactionFilterContainer: React.FC<ITransactionFilterList> = ({
       const chipColor = isSecondarySelected && colors.SECONDARY_BLUE_LIGHTEN
       const label = TransactionFilterLabel[chip]
 
-      const isSelected = selectedFilter === chip
+      const isSelected = selectedFilter === chip && !hasSearch
 
       const onClick = (): void => {
         onClickFilter(chip)
