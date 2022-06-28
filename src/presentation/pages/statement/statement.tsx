@@ -20,7 +20,8 @@ export const Statement: React.FC = () => {
     handleSearchTerm,
     searchValues,
     handleSearchFilter,
-    searchTerm
+    searchTerm,
+    searchRef
   } = useTransactionSearch({
     transactions: transactionsResults
   })
@@ -28,7 +29,8 @@ export const Statement: React.FC = () => {
     getTransactionFilter,
     selectedFilter,
     defaultFilters,
-    transactionsFilter
+    transactionsFilter,
+    handleTransactionsFilter
   } = useTransactionFilters({
     initialFilter: TransactionFilterTypes.ALL,
     transactions: transactionsResults
@@ -37,6 +39,17 @@ export const Statement: React.FC = () => {
   useEffect(() => {
     handleGetTransactions()
   }, [])
+
+  useEffect(() => {
+    handleFilter()
+    if (searchRef?.current) {
+      searchRef.current.value = ''
+    }
+  }, [selectedFilter])
+
+  const handleFilter = (): void => {
+    handleTransactionsFilter()
+  }
 
   const handleSearch = (event: ChangeEvent<HTMLInputElement>): void => {
     const { value } = event.target
@@ -64,8 +77,6 @@ export const Statement: React.FC = () => {
     return transactionsResults
   },[transactionsResults, transactionsFilter, searchValues, selectedFilter, searchTerm])
 
-  const transactionsDay = getTransactionsDays()
-
   if (loading) {
     return <Loading />
   }
@@ -74,14 +85,17 @@ export const Statement: React.FC = () => {
     return <Error />
   }
 
+  const transactionsDay = getTransactionsDays()
+  const hasSearch = transactionsFilter && transactionsFilter.length === 0
+
   return (
     <Styled.Wrapper>
-      <SearchBar onChangeSearch={handleSearch}>
+      <SearchBar onChangeSearch={handleSearch} inputRef={searchRef}>
         <TransactionFilterContainer
           onClickFilter={getTransactionFilter}
           selectedFilter={selectedFilter}
           filters={defaultFilters}
-          hasSearch={searchTerm && searchTerm.length > 0}
+          hasSearch={hasSearch}
         />
       </SearchBar>
 

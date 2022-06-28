@@ -1,8 +1,8 @@
+import { useState, useCallback } from 'react'
 import {
   TransactionFilterTypes,
   transactionFilterType
 } from '@presentation/pages/statement/components/transaction-filter/transaction-filter-types'
-import { useState, useCallback, useEffect } from 'react'
 import { ITransactionsDay } from '@domain/models/transactions/'
 
 interface ITransactionFiltersHooks {
@@ -10,6 +10,7 @@ interface ITransactionFiltersHooks {
   getTransactionFilter: (filter: string) => void
   defaultFilters: string[]
   transactionsFilter: ITransactionsDay[]
+  handleTransactionsFilter: () => void
 }
 
 interface ITransactionFilterHooksProps {
@@ -33,10 +34,6 @@ export const useTransactionFilters = ({
   )
   const [transactionsFilter, setTransactionsFilter] =
     useState<ITransactionsDay[]>()
-
-  useEffect(() => {
-    handleTransactionsFilter()
-  }, [selectedFilter])
 
   const handleTransactionsFilter = (): void => {
     if (!transactions || transactions.length === 0) return
@@ -77,6 +74,7 @@ export const useTransactionFilters = ({
     defaultFilters: DEFAULT_FILTERS,
     selectedFilter,
     getTransactionFilter,
-    transactionsFilter
+    transactionsFilter,
+    handleTransactionsFilter
   }
 }
