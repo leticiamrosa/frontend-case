@@ -1,3 +1,6 @@
 export * from './header/header'
 export * from './chips/chips'
 export * from './icon/icon'
+export * from './inputs/input-search/input-search'
+export * from './text/text'
+export * from './loading/loading'

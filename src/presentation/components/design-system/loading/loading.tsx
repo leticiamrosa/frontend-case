@@ -8,5 +8,13 @@ import Styled from './loading.styles'
 const ICON_HEIGHT = 80
 
 export const Loading: React.FC = () => {
-  return <Styled.LoadingWrapper><Icon icon={IconLoading} backgroundColor={colors.WHITE} iconHeight={ICON_HEIGHT}/></Styled.LoadingWrapper>
+  return (
+    <Styled.LoadingWrapper>
+      <Icon
+        icon={IconLoading}
+        backgroundColor={colors.WHITE}
+        iconHeight={ICON_HEIGHT}
+      />
+    </Styled.LoadingWrapper>
+  )
 }

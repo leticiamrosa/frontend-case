@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import { colors, fontWeight } from '@presentation/styles/theme'
 
 const SearchWrapper = styled.section`
   display: flex;
@@ -17,25 +16,6 @@ const FilterWrapper = styled.div`
   flex-direction: row;
 `
 
-const InputWrapper = styled.div`
-  height: 64px;
-  background-color: ${colors.PRIMARY_GRAY_LIGHTEN};
-  align-items: center;
-  display: flex;
-  flex: 1;
-  border-radius: 16px;
-  padding: 0px 20px 0px 20px;
-`
-
-const InputSearch = styled.input`
-  font-size: 16px;
-  font-weight: ${fontWeight.REGULAR};
-  line-height: 24px;
-  width: 100%;
-  background-color: ${colors.PRIMARY_GRAY_LIGHTEN};
-  padding-left: 2%;
-`
-
 const WrapperChip = styled.div`
   margin-right: 40px;
 `
@@ -43,7 +23,5 @@ const WrapperChip = styled.div`
 export default {
   SearchWrapper,
   FilterWrapper,
-  InputSearch,
-  InputWrapper,
   WrapperChip
 }
