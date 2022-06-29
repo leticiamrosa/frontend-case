@@ -1,15 +1,5 @@
 import styled, { css } from 'styled-components'
 
-const SearchWrapper = styled.section`
-  display: flex;
-  flex: 0.6;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  min-height: 70px;
-  flex-wrap: wrap-reverse;
-`
-
 const FilterWrapper = styled.div`
   display: flex;
   flex: 0.4;
@@ -29,7 +19,6 @@ const WrapperChip = styled.div<{ isMobile: boolean }>`
 `
 
 export default {
-  SearchWrapper,
   FilterWrapper,
   WrapperChip
 }
