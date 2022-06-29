@@ -1,14 +1,14 @@
 import React from 'react'
 import { Header } from '@presentation/components/design-system'
 import { PageWrapper } from '@presentation/components/common'
-import { Statement } from '@presentation/pages/statement/statement'
+import { StatementContainer } from '@presentation/pages/statement/statement.container'
 
 export const StatementPage: React.FC = () => {
   return (
     <>
       <Header />
       <PageWrapper>
-        <Statement />
+        <StatementContainer />
       </PageWrapper>
     </>
   )

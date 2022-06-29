@@ -10,7 +10,7 @@ import { useTransactionSearch } from '@presentation/hooks/useTransactionsSearch/
 
 import Styled from './statement.style'
 
-export const Statement: React.FC = () => {
+export const StatementContainer: React.FC = () => {
   const { transactions, handleGetTransactions, loading, error } =
     TransactionsContext.useContainer()
 
@@ -60,7 +60,11 @@ export const Statement: React.FC = () => {
 
   const getTransactionsDays = useCallback(() => {
     const isInitialFilter = selectedFilter === TransactionFilterTypes.ALL
-    const isSearch = searchValues && searchValues.length > 0 && transactionsFilter && transactionsFilter.length === 0
+    const isSearch =
+      searchValues &&
+      searchValues.length > 0 &&
+      transactionsFilter &&
+      transactionsFilter.length === 0
 
     if (isInitialFilter) {
       return transactionsResults
@@ -75,10 +79,16 @@ export const Statement: React.FC = () => {
     }
 
     return transactionsResults
-  },[transactionsResults, transactionsFilter, searchValues, selectedFilter, searchTerm])
+  }, [
+    transactionsResults,
+    transactionsFilter,
+    searchValues,
+    selectedFilter,
+    searchTerm
+  ])
 
   if (loading) {
-    return <Loading />
+    return <Loading data-testid="statement-loading"/>
   }
 
   if (error) {
@@ -89,18 +99,26 @@ export const Statement: React.FC = () => {
   const hasSearch = transactionsFilter && transactionsFilter.length === 0
 
   return (
-    <Styled.Wrapper>
-      <SearchBar onChangeSearch={handleSearch} inputRef={searchRef}>
+    <Styled.Wrapper data-testid="statement-container">
+      <SearchBar
+        onChangeSearch={handleSearch}
+        inputRef={searchRef}
+        data-testid="statement-search-bar"
+      >
         <TransactionFilterContainer
           onClickFilter={getTransactionFilter}
           selectedFilter={selectedFilter}
           filters={defaultFilters}
           hasSearch={hasSearch}
+          data-testid="statement-filter"
         />
       </SearchBar>
 
       {transactionsDay && (
-        <TransactionListContainer transactionsDay={transactionsDay} />
+        <TransactionListContainer
+          transactionsDay={transactionsDay}
+          data-testid="statement-transactions-list-container"
+        />
       )}
     </Styled.Wrapper>
   )
